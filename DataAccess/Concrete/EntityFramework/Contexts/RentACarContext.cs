@@ -10,6 +10,7 @@ public class RentACarContext : DbContext
     public DbSet<Transmission> Transmissions { get; set; }
     public DbSet<Model> Models { get; set; }
     public DbSet<User> Users { get; set; }
+    public DbSet<Customer> Customers { get; set; }
 
     //public DbSet<Car> Cars { get; set; }
 
