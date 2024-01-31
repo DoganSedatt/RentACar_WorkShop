@@ -34,7 +34,6 @@ public class ModelManager : IModelService
         ValidationTool.Validate(new AddModelRequestValidator(), request);
 
 
-
         // business rules
         _modelBusinessRules.CheckIfModelNameExists(request.Name);
         _modelBusinessRules.CheckIfModelYearShouldBeInLast20Years(request.Year);

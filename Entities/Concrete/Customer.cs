@@ -9,9 +9,23 @@ namespace Entities.Concrete
 {
     public class Customer:Entity<int>
     {
-        public int Id { get; set; }
+        
+        public int UserId {  get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
-        public User? User { get; set; }//one to one ilişki 
+         
+
+        public Customer()
+        {
+        }
+        public Customer(string name,string lastName,int userId)
+        {
+           
+            Name = name;
+            LastName = lastName;
+            UserId = userId;
+
+        }
+        public User? User { get; set; } = null;//one to one ilişki
     }
 }
