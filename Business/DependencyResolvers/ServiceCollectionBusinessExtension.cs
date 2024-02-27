@@ -2,10 +2,13 @@
 using Business.Abstract;
 using Business.BusinessRules;
 using Business.Concrete;
+using Core.Utilities.JWT;
 using DataAccess.Abstract;
+using DataAccess.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.EntityFramework.Contexts;
 using DataAccess.Concrete.InMemory;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -44,6 +47,15 @@ public static class ServiceCollectionBusinessExtension
             .AddScoped<ICustomerService, CustomerManager>()
             .AddScoped<ICustomerDal, EfCustomerDal>()
             .AddScoped<CustomerBusinnesRules>();
+
+        services
+            .AddScoped<IAuthService, AuthManager>()
+            .AddScoped<IAuthDal, EfAuthDal>()
+            .AddScoped<ITokenHelper, JWTTokenHelper>();
+
+        services
+            .AddScoped<IRoleService, RoleManager>()
+            .AddScoped<IRoleDal, EfRoleDal>();
 
         services.AddAutoMapper(Assembly.GetExecutingAssembly()); // AutoMapper.Extensions.Microsoft.DependencyInjection NuGet Paketi
         // Reflection yöntemiyle Profile class'ını kalıtım alan tüm class'ları bulur ve AutoMapper'a ekler.

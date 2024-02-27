@@ -2,6 +2,7 @@
 using Business.Abstract;
 using Business.Requests.Model;
 using Business.Responses.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,7 +29,9 @@ namespace WebAPI.Controllers
 
 
 
+
         [HttpGet("GetAll")]
+        
         public GetCustomerListResponse GetList([FromQuery] GetCustomerListRequest request)
         {
             GetCustomerListResponse response = _customerservice.GetList(request);

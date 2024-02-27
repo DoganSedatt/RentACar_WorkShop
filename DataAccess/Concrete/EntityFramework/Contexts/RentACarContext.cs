@@ -1,4 +1,5 @@
-﻿using Entities.Concrete;
+﻿using Core.Entities;
+using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Concrete.EntityFramework.Contexts;
@@ -11,6 +12,8 @@ public class RentACarContext : DbContext
     public DbSet<Model> Models { get; set; }
     public DbSet<User> Users { get; set; }
     public DbSet<Customer> Customers { get; set; }
+    public DbSet<Auth> Auths { get; set; }
+    public DbSet<Role> Roles { get; set; }
 
     //public DbSet<Car> Cars { get; set; }
 
